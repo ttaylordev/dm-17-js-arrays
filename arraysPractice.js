@@ -5,7 +5,9 @@ var arr = [10,20,30];
 //Create a function named 'first' that is given 'arr' as the argument and  returns the first item in the given array.
 
   //Code Here
-
+var first = function(arr){
+  return arr[0];
+}
 
 //Next problem
 
@@ -16,7 +18,9 @@ var arr = [40,50,60];
 
 
   //Code Here
-
+var last = function(arr){
+  return arr[arr.length-1];
+}
 
 //Next Problem
 
@@ -25,7 +29,11 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 //Create a function named 'looper' that is given family as it's only argument, loops through the given array, and alerts every item in the array.
 
   //Code Here
-
+var looper = function(fam){
+  for( var member in fam){
+    alert(fam[member]);
+  }
+}
 
 //Next problem
 
@@ -35,16 +43,42 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 //Write a function called reversedLooper that is given letters as it's only argument and loops through the given array backwards alerting every item in the array starting at the end.
 
   //Code Here
-
+function reversedLooper(arr){
+  for (var i = arr.length-1; i >= 0; i--){
+    alert(arr[i]);
+  }
+  
+}
 
 //Next Problem
 
 
-var nums = [1,2,3,6,22,98,45,23,22,12];
+var nums = [1,2,3,6,22,98,45,21,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
-  //Code Here
-
+//Code Here
+function evenFinder(arr) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+  // A for/in loop screws it up, missing the removal of consecxutive odds.
+  // the splice method also alteres the original array, even if I've assigned it a new name within the function. Since it's a complex data type, it is passing a reference, not the actual value.
+    // var evenFinder = function(arr){
+  //   for(var i in arr){
+  //     if (arr[i] % 2 !== 0){
+  //       console.log(arr[i]);
+  //       arr.splice(i, 1);
+  //     }
+  //     
+  //   }
+  //   return arr;
+  // }
+  // evenFinder(nums);
 
 //Next problem
 
@@ -52,11 +86,28 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
-
-
+function oddFinder(arr) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
 
   //Code Here
-
+function divider(arr){
+  var newArr = [];
+  // first item: all even values
+  var evens = evenFinder(arr); 
+  // second item: all odd values
+  var odds = oddFinder(arr); 
+  console.log(odds + ' odds');
+  newArr.push(evens);
+  newArr.push(odds);
+  return newArr;
+}
 
 //Next Problem
 
@@ -70,7 +121,10 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
+  function finder(){
+    var arr = getRandomArbitrary();
+    // loop through arr.
+  }
   //Code Here
 
 
